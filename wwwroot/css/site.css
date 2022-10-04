@@ -56,3 +56,6 @@ body {
 .image6 {
     background-image: url('../image/food-item-6.jpg');
 }
+a{
+    text-decoration:none;
+}

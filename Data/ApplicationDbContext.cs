@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace your_recipe.Data
+namespace YourRecipe.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

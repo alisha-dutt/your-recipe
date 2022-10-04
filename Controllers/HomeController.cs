@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using your_recipe.Models;
+using YourRecipe.Models;
 
-namespace your_recipe.Controllers
+namespace YourRecipe.Controllers
 {
     public class HomeController : Controller
     {

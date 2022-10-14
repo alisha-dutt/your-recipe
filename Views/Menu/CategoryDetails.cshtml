@@ -1,0 +1,19 @@
+﻿@model IEnumerable<YourRecipe.Models.Recipe>
+@{
+    ViewData["Title"] = "Categories";
+}
+<h1> Let's cook something for @ViewData["Category"].!</h1>
+<section>
+    @foreach (var category in Model)
+    {
+    <div class="card" style="width: 22rem;">
+        <img class="card-img-top rounded mx-auto d-block">
+        <div class="card-body">
+            <h2 class="card-title">@category.Name</h2>
+            <h5 class="card-title"> By- @category.Creator</h5>
+            <p class="card-text">@category.Steps</p>
+            <a asp-action="Recipes" class="btn btn-primary">Back to List</a>
+        </div>
+        </div>
+   }
+</section>

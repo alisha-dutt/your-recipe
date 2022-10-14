@@ -1,0 +1,22 @@
+﻿@model IEnumerable<your_recipe.Models.Category>
+
+@{
+    ViewData["Title"] = "Menu";
+}
+<h1>Explore Menu</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Category Name</th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach (var item in Model)
+        {
+    <tr>
+            <td><a asp-controller="Menu" asp-action="CategoryDetails" asp-route-id="@item.CategoryId">@Html.DisplayFor(modelItem => item.Name)</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+    </tr>
+}
+  </tbody>
+</table>

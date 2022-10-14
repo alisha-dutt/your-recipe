@@ -17,10 +17,6 @@ body {
   margin-bottom: 60px;
 }
 
-* {
-    border-sizing: border-box;
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -58,4 +54,10 @@ body {
 }
 a{
     text-decoration:none;
+}
+.card-img-top {
+    background-image: url('../image/food-item-8.jpg');
+    min-height:250px;
+    background-repeat:no-repeat;    
+    background-size:contain;
 }

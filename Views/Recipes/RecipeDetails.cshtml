@@ -1,0 +1,17 @@
+﻿@model YourRecipe.Models.Recipe
+@{
+    ViewData["Title"] = "RecipeDetails";
+}
+<h1> Let's Make something Delicious </h1>
+<section>
+    
+
+     <div class="card" style="width: 22rem;">
+        <img class="card-img-top rounded mx-auto d-block">
+        <div class="card-body">
+            <h2 class="card-title">@Html.DisplayTextFor(model => model.Name)</h2>
+            <h5 class="card-title"> By- @Html.DisplayTextFor(model => model.Creator)</h5>
+            <p class="card-text">@Html.DisplayTextFor(model => model.Steps)</p>
+        </div>
+        </div>
+</section>

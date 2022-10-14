@@ -1,0 +1,29 @@
+﻿@model IEnumerable<YourRecipe.Models.Recipe>
+
+@{
+    ViewData["Title"] = "Recipes";
+}
+<h1>Explore Menu</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Recipe Name</th>
+      <th scope="col" colspan="2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach (var item in Model)
+        {
+    <tr>
+            <td><a asp-controller="Recipes" asp-action="RecipeDetails" asp-route-id="@item.RecipeId">@Html.DisplayFor(modelItem => item.Name)</a></td>
+            <td> <a asp-controller="Recipes" asp-action="EditRecipe" asp-route-id="@item.RecipeId">Edit</a></td>
+            <td>  <a asp-controller="Recipes" asp-action="DeleteRecipe" asp-route-id="@item.RecipeId">Delete</a></td>
+    </tr>
+}
+  </tbody>
+</table>
+
+<button class="btn btn-primary"><a asp-action="Create" style="color:white;">Add New Recipe</a></button>
+<hr>
+
+

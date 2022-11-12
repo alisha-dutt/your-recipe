@@ -3,9 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using YourRecipe.Models;
 using your_recipe.Models;
 using YourRecipe.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace YourRecipe.Controllers
 {
+    [Authorize]
     public class MenuController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -38,7 +40,7 @@ namespace YourRecipe.Controllers
 
             return View(recipes);
         }
-
+        
         public async Task<IActionResult> CategoryDetails(int? id)
         {
             if (id == null || _context.Recipes == null)

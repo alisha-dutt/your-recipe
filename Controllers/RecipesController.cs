@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using your_recipe.Models;
@@ -7,6 +8,7 @@ using YourRecipe.Models;
 
 namespace your_recipe.Controllers
 {
+    
     public class RecipesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -14,6 +16,8 @@ namespace your_recipe.Controllers
         {
             _context = context;
         }
+
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Recipes.ToListAsync());
@@ -41,6 +45,7 @@ namespace your_recipe.Controllers
         }
 
         // GET: Recipes/EditRecipe/2
+        [Authorize]
         public async Task<IActionResult> EditRecipe(int? id)
         {
             if (id == null || _context.Recipes == null)
@@ -68,6 +73,7 @@ namespace your_recipe.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+       
         public async Task<IActionResult> EditRecipe(int id, [Bind("RecipeId,Name,Creator,Steps,Photo,CategoryId")] Recipe recipe)
         {
             if (id != recipe.RecipeId)
@@ -99,6 +105,7 @@ namespace your_recipe.Controllers
         }
 
         // GET: Recipes/RecipeDelete/5
+       
         public async Task<IActionResult> DeleteRecipe(int? id)
         {
             if (_context.Recipes == null)
@@ -116,6 +123,7 @@ namespace your_recipe.Controllers
         }
 
         // GET: Recipes/RecipeDetails/5
+        
         public async Task<IActionResult> RecipeDetails(int? id)
         {
             if (id == null || _context.Recipes == null)

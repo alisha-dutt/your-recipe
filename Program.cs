@@ -14,6 +14,18 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+// enable google suthentication for local and azure server
+var configuration = builder.Configuration;
+
+builder.Services.AddAuthentication()
+    .AddGoogle(options =>
+     {
+         options.ClientId = configuration["Authentication:Google:ClientId"];
+         options.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+         options.ClientId = configuration["Authentication:GoogleAzure:ClientId"];
+         options.ClientSecret = configuration["Authentication:GoogleAzure:ClientSecret"];
+     }
+     );
 
 
 var app = builder.Build();

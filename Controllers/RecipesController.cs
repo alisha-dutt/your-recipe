@@ -50,13 +50,13 @@ namespace your_recipe.Controllers
         {
             if (id == null || _context.Recipes == null)
             {
-                return NotFound();
+                return View("404");
             }
 
             var recipe = await _context.Recipes.FindAsync(id);
             if (recipe == null)
             {
-                return NotFound();
+                return View("404");
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name");
             return View(recipe);
@@ -78,7 +78,7 @@ namespace your_recipe.Controllers
         {
             if (id != recipe.RecipeId)
             {
-                return NotFound();
+                return View("404");
             }
 
             if (ModelState.IsValid)
@@ -128,14 +128,14 @@ namespace your_recipe.Controllers
         {
             if (id == null || _context.Recipes == null)
             {
-                return NotFound();
+                return View("404");
             }
 
             var recipe = await _context.Recipes
                 .FirstOrDefaultAsync(m => m.RecipeId == id);
             if (recipe == null)
             {
-                return NotFound();
+                return View("404");
             }
 
             return View(recipe);

@@ -20,7 +20,7 @@ namespace your_recipe.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Recipes.ToListAsync());
+            return View("Index", await _context.Recipes.ToListAsync());
         }
         public IActionResult Create()
         {

@@ -59,7 +59,7 @@ namespace your_recipe.Controllers
                 return View("404");
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name");
-            return View(recipe);
+            return View("EditRecipe", recipe);
         }
 
 
@@ -92,7 +92,7 @@ namespace your_recipe.Controllers
                 {
                     if (!RecipeExists(recipe.RecipeId))
                     {
-                        return NotFound();
+                        return View("404");
                     }
                     else
                     {

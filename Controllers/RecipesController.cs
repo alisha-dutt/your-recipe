@@ -20,6 +20,7 @@ namespace your_recipe.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
+            //specifying view for unit testing
             return View("Index", await _context.Recipes.ToListAsync());
         }
         public IActionResult Create()
